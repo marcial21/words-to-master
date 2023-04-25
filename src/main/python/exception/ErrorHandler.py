@@ -11,3 +11,6 @@ class ErrorHandler:
             return self.ERROR_02
         else:
             return None
+        
+    def isExitInvoked(self, input):
+        return input == "return"

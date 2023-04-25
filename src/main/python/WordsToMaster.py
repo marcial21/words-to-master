@@ -2,6 +2,7 @@ from service.DefineWordService import DefineWordService
 from ui.UserInterface import UserInterface
 from exception.ErrorHandler import ErrorHandler
 from service.GoogleSearchService import GoogleSearchService
+from service.DataStorageService import DataStorageService
 
 class WordsToMaster:
     def __init__(self) -> None:
@@ -9,7 +10,8 @@ class WordsToMaster:
         self.userInterface = UserInterface()
         self.errorHandler = ErrorHandler()
         self.googleSearchService = GoogleSearchService()
-        self.defineWordService = DefineWordService(self.errorHandler, self.googleSearchService, self.userInterface)
+        self.dataStorageService = DataStorageService()
+        self.defineWordService = DefineWordService(self.errorHandler, self.googleSearchService, self.userInterface, self.dataStorageService)
 
     def handleUserOptions(self, userInput):
         match userInput:
@@ -26,6 +28,7 @@ class WordsToMaster:
                 self.defineWordService.continousDictionary()
             case "6":
                 print("Picked 6")
+                quit()
             case _:
                 print("Please select an option listed above.")
 
@@ -33,7 +36,8 @@ class WordsToMaster:
 
 
     def startApplication(self): 
-        self.handleUserOptions(self.userInterface.welcomeScreen())
+        while True:
+            self.handleUserOptions(self.userInterface.welcomeScreen())
         # New user interface
 
         # New storage container tha will be empty or import 

@@ -18,7 +18,7 @@ class UserInterface:
         print("2. Import from textfile.")
         print("3. Create a new list of words.")
         print("4. Choose from an existing list of words. ")
-        print("5. Define single word.\n")
+        print("5. Define single word.")
         print("6. Exit program.")
 
         return input("Enter your choice (1-6): ")
