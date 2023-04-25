@@ -35,22 +35,22 @@ class GoogleSearchService:
 
 
 
-m = GoogleSearchService()
-print("\n\n")
-word = "ferocious"
-definition = m.getDefinition(word)
-if definition:
-    print(f"The definition of '{word}' is '{definition}'")
-else:
-    print(f"No definition found for '{word}'")
+# m = GoogleSearchService()
+# print("\n\n")
+# word = "ferocious"
+# definition = m.getDefinition(word)
+# if definition:
+#     print(f"The definition of '{word}' is '{definition}'")
+# else:
+#     print(f"No definition found for '{word}'")
 
-print("==========================================")
-word = "spurt"
-definitions = m.getMultipleDefinitions(word)
-if definitions:
-    print(f"The definition(s) of '{word}' are:")
-    for definition in definitions:
-        print(f"- {definition}")
-else:
-    print(f"No definition found for '{word}'")
+# print("==========================================")
+# word = "spurt"
+# definitions = m.getMultipleDefinitions(word)
+# if definitions:
+#     print(f"The definition(s) of '{word}' are:")
+#     for definition in definitions:
+#         print(f"- {definition}")
+# else:
+#     print(f"No definition found for '{word}'")
 
