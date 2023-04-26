@@ -22,6 +22,11 @@ class DefineWordService:
             self.userInterface.printDefinition(word, definition)
 
             self.dataStorageService.checkForNewWord(word)
+
+    def continousStoredDictionary(self):
+        self.dataStorageService.loadExistingWordSets()
+        self.dataStorageService.initializeActiveList()
+
             
 
                 

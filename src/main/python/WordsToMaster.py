@@ -10,7 +10,7 @@ class WordsToMaster:
         self.userInterface = UserInterface()
         self.errorHandler = ErrorHandler()
         self.googleSearchService = GoogleSearchService()
-        self.dataStorageService = DataStorageService()
+        self.dataStorageService = DataStorageService(self.userInterface)
         self.defineWordService = DefineWordService(self.errorHandler, self.googleSearchService, self.userInterface, self.dataStorageService)
 
     def handleUserOptions(self, userInput):
@@ -21,6 +21,7 @@ class WordsToMaster:
                 print("Picked 2")
             case "3":
                 print("Picked 3")
+                self.defineWordService.continousStoredDictionary()
             case "4":
                 print("Picked 4")
             case "5":
