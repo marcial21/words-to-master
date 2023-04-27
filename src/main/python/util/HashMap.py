@@ -62,7 +62,7 @@ class HashMap:
         if foundKey:
             return recordVal
         else:
-            return "No record found"
+            return None
  
     # Remove a value with specific key
     def deleteVal(self, key):
@@ -93,21 +93,21 @@ class HashMap:
     
 
 
-hash_table = HashMap(50)
+# hash_table = HashMap(50)
  
-# insert some values
-hash_table.setValue('gfg@example.com', 'some value')
-print(hash_table)
-print()
+# # insert some values
+# hash_table.setValue('gfg@example.com', 'some value')
+# print(hash_table)
+# print()
  
-hash_table.setValue('portal@example.com', 'some other value')
-print(hash_table)
-print()
+# hash_table.setValue('portal@example.com', 'some other value')
+# print(hash_table)
+# print()
  
-# search/access a record with key
-print(hash_table.getVal('portal@example.com'))
-print()
+# # search/access a record with key
+# print(hash_table.getVal('portal@example.com'))
+# print()
  
-# delete or remove a value
-hash_table.deleteVal('portal@example.com')
-print(hash_table)
+# # delete or remove a value
+# hash_table.deleteVal('portal@example.com')
+# print(hash_table)

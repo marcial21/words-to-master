@@ -21,11 +21,34 @@ class DefineWordService:
             definition = self.googleSearchService.getDefinition(word)
             self.userInterface.printDefinition(word, definition)
 
-            self.dataStorageService.checkForNewWord(word)
 
     def continousStoredDictionary(self):
         self.dataStorageService.loadExistingWordSets()
         self.dataStorageService.initializeActiveList()
+        while True:
+            word = input("Please enter a word to define or enter 'return' to return to main menu\n")
+            self.errorCode = self.errorHandler.validateNonEmptyString(word)
+            if (self.errorCode):
+                print("Error, ", self.errorCode)
+                continue
+                
+            if (self.errorHandler.isExitInvoked(word)):
+                break
+
+            print("Looking up definition for ", word)
+            definition = self.googleSearchService.getDefinition(word)
+            self.userInterface.printDefinition(word, definition)
+
+            if (self.isValidDefinition(definition)):
+                self.dataStorageService.checkForNewWord(word, definition)
+
+    def isValidDefinition(self, definition):
+        if definition:
+            return True
+        else:
+            return False
+
+
 
             
 

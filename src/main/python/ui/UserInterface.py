@@ -8,6 +8,13 @@ class UserInterface:
         else:
             print(f"No definition found for '{word}'")
 
+    def chooseWordSet(self, setKeys):
+        print("Print from one of the following word set options: ")
+        for key in setKeys:
+            print(key)
+
+        return input("Enter name of chosen set: \n")
+
     def welcomeScreen(self):
         print("Welcome to WordsToMaster, your very own english literacy tool! Brought to you by big daddy Gabe.\n")
         print("Please refer to the README file to get a detailed desciption of how to use the tool and it's features.")

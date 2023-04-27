@@ -1,7 +1,10 @@
+from util.HashMap import HashMap
+
 class DataStorageService:
     def __init__(self, userInterface) -> None:
         self.activeSet = None
-        self.availableSets = []
+        self.activeSetKey = None
+        self.availableSets = HashMap(100)
         self.availableSetsKeys = []
         self.userInterface = userInterface
 
@@ -16,26 +19,44 @@ class DataStorageService:
     # Method should be called at the start of our program
     def initializeActiveList(self):
         userChosenKey = None
-        if len(self.availableSets) > 1:
+        if self.availableSets.size > 1:
             userChosenKey = self.userInterface.chooseWordSet(self.availableSetsKeys)
-        elif len(self.availableSets) == 0:
+            self.activeSet = self.availableSets.getVal(userChosenKey)
+            self.activeSetKey = userChosenKey
+        elif self.availableSets.size == 1:
             self.activeSet = self.availableSets[0]
+            self.activeSetKey = self.availableSetsKeys[0]
         else:
-            name = input("Choose a name for your new word list: ")
-            self.activeSet = []
+            self.activeSet = self.createNewSet()
+
+        
+    def createNewSet(self):
+        name = input("Choose a name for your new word list: ")
+        newMap = HashMap(10000)
+        self.availableSets.setValue(name, newMap)
+        self.availableSetsKeys.append(name)
+        self.activeSetKey = name
+        print("Added new set for you named ", name)
+        print("Setting ", name, " as the active list.")
+        self.activeSet = newMap
+        return newMap
         
 
     #Use dictionary, will add word to active list and its definition
-    def checkForNewWord(self, word):
+    def checkForNewWord(self, word, definition):
         # Check if our active list is empty
-
-        print("New word added to your set!")
-
-        print("Duplicate word! You have seen this word previously.")
-    
-    # Add to binary search tree
-    def addToActiveSet(self):
-        pass
+        if (len(self.activeSet) == 0):
+            self.activeSet.setValue(word, definition)
+            print("First word added to your set! '", word, "'")
+        else:
+            # Check if word already exists
+            if self.activeSet.getVal(word):
+                print("YOu have seen this word already!")
+                return
+            # Couldn't find it, now we add the word to the list
+            else:
+                self.activeSet.setValue(word, definition)
+                print("New word added to your set!")
 
     # Will populate the availableLists array that can be used to switch in and out of the active list.
     # Most users would probably only have one list. 
