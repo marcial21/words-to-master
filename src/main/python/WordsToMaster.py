@@ -21,7 +21,7 @@ class WordsToMaster:
                 print("Picked 2")
             case "3":
                 print("Picked 3")
-                self.defineWordService.continousStoredDictionary()
+                self.defineWordService.newContinousStoredDictionary()
             case "4":
                 print("Picked 4")
             case "5":

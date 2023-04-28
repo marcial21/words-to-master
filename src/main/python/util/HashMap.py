@@ -3,6 +3,7 @@ class HashMap:
     # Create empty bucket list of given size
     def __init__(self, size):
         self.size = size
+        self.length = 0
         self.hashTable = self.createBuckets()
  
     def createBuckets(self):
@@ -35,6 +36,7 @@ class HashMap:
             bucket[index] = (key, val)
         else:
             bucket.append((key, val))
+            self.length += 1
  
     # Return searched value with specific key
     def getVal(self, key):
@@ -85,6 +87,7 @@ class HashMap:
                 break
         if foundKey:
             bucket.pop(index)
+            self.length -= 1
         return
  
     # To print the items of hash map

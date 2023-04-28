@@ -22,9 +22,9 @@ class DefineWordService:
             self.userInterface.printDefinition(word, definition)
 
 
-    def continousStoredDictionary(self):
-        self.dataStorageService.loadExistingWordSets()
-        self.dataStorageService.initializeActiveList()
+    # FOr option 3
+    def newContinousStoredDictionary(self):
+        self.dataStorageService.setNewActiveList()
         while True:
             word = input("Please enter a word to define or enter 'return' to return to main menu\n")
             self.errorCode = self.errorHandler.validateNonEmptyString(word)
@@ -47,6 +47,11 @@ class DefineWordService:
             return True
         else:
             return False
+        
+    # For option 4
+    # TODO
+    def loadContinousStoredDictionary(self):
+        pass
 
 
 
