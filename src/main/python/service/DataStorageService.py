@@ -67,4 +67,7 @@ class DataStorageService:
     def importWordSets(self):
         #TODO
         pass
-    
+
+    #TODO: user should bbe able to change a set's name
+    def changeSetName(self):
+        pass
