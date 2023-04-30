@@ -37,7 +37,6 @@ class DefineWordService:
             return False
         
     # For option 4
-    # TODO
     def loadContinousStoredDictionary(self):
         # Check for available lists on stack
         self.dataStorageService.loadActiveList()
