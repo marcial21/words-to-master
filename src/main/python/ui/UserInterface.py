@@ -8,6 +8,10 @@ class UserInterface:
         else:
             print(f"No definition found for '{word}'")
 
+    # Only for printing objects of type 
+    def printSet(self, set):
+        print(set)
+
     def chooseWordSet(self, setKeys):
         print("Print from one of the following word set options: ")
         for key in setKeys:

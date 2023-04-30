@@ -17,18 +17,20 @@ class DataStorageService:
         self.userInterface = userInterface
         
     # For option 4, choose from an existing set, will default to 3 if no existing sets,
-    # Method should be called at the start of our program
-    #TODO: fix for option 4
     def loadActiveList(self):
-        userChosenKey = None
-        if self.availableSets.length > 1:
-            userChosenKey = self.userInterface.chooseWordSet(self.availableSetsKeys)
-            self.activeSet = self.availableSets.getVal(userChosenKey)
-            self.activeSetKey = userChosenKey
-        elif self.availableSets.length == 1:
-            self.activeSet = self.availableSets.getVal(self.activeSetKey)
-        else:
+        if (self.activeSetKey is None):
+            print("No available sets yet big g. Will create a new set for ya tho. \n")
             self.setNewActiveList()
+            return
+        
+        if self.availableSets.length == 1:
+            print("Set: '", self.activeSetKey, "' is now your active set!")
+            return
+
+        # Look for the existing set and choose it
+        userChosenKey = self.userInterface.chooseWordSet(self.availableSetsKeys)
+        self.activeSet = self.availableSets.getVal(userChosenKey)
+        self.activeSetKey = userChosenKey
 
     # For user option 3, create new list of words
     def setNewActiveList(self):
@@ -55,7 +57,7 @@ class DataStorageService:
         else:
             # Check if word already exists
             if self.activeSet.getVal(word):
-                print("YOu have seen this word already!")
+                print("You have seen this word already!")
                 return
             # Couldn't find it, now we add the word to the list
             else:
