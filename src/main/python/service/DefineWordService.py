@@ -20,9 +20,9 @@ class DefineWordService:
             if (self.errorHandler.isExitInvoked(word)): 
                 break
 
-            print("Looking up definition for ", word)
-            definition = self.googleSearchService.getDefinition(word)
-            self.userInterface.printDefinition(word, definition)
+            print("Looking up definition for", word + "...")
+            definitions = self.googleSearchService.getMultipleDefinitions(word)
+            self.userInterface.printDefinitions(word, definitions)
 
 
     # FOr option 3
@@ -44,7 +44,9 @@ class DefineWordService:
 
     def defineWordAndAddToList(self):
         while True:
-            word = input("Please enter a word to define or enter 'return' to return to main menu\n")
+            word = input("Please enter a word to define or choose from the following options:\n" +
+            "\t* Enter 'return' to return to main menu\n" +
+            "\t* Enter 'print' to print out your current active list.\n")
             self.errorCode = self.errorHandler.validateNonEmptyString(word)
             if (self.errorCode):
                 print("Error, ", self.errorCode)
@@ -52,13 +54,16 @@ class DefineWordService:
                 
             if (self.errorHandler.isExitInvoked(word)):
                 break
-
-            print("Looking up definition for ", word)
-            definition = self.googleSearchService.getDefinition(word)
-            self.userInterface.printDefinition(word, definition)
+            if (self.userInterface.printSetInvoked(word)):
+                self.userInterface.printSet(self.dataStorageService.activeSet)
+                continue
+            
+            print("Looking up definition for", word + "...")
+            definition = self.googleSearchService.getMultipleDefinitions(word)
+            self.userInterface.printDefinitions(word, definition)
 
             if (self.isValidDefinition(definition)):
-                self.dataStorageService.checkForNewWord(word, definition)
+                self.dataStorageService.checkForNewWordMultipleDefinitions(word, definition)
 
 
             

@@ -4,13 +4,27 @@ class UserInterface:
     
     def printDefinition(self, word, definition):
         if definition:
-            print(f"The definition of '{word}' is '{definition}'")
+            print(f"\n\nThe definition of '{word}' is: \n\t'{definition}'\n\n")
         else:
-            print(f"No definition found for '{word}'")
+            print(f"\n\tNo definition found for '{word}'\n")
+
+    def printDefinitions(self, word, definitions):
+        if definitions:
+            print(f"\n\nThe definition(s) of '{word}' are:")
+            for definition in definitions:
+                print(f"\t- {definition}")
+            print("\n")
+        else:
+            print(f"\n\tNo definition found for '{word}'\n")
 
     # Only for printing objects of type 
+    #TODO: enhance this print statement
     def printSet(self, set):
         print(set)
+
+    def printSetInvoked(self, word):
+        if (word == "print"):
+            return True
 
     def chooseWordSet(self, setKeys):
         print("Print from one of the following word set options: ")

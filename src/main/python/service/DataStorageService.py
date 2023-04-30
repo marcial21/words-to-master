@@ -43,8 +43,8 @@ class DataStorageService:
         self.availableSets.setValue(name, newMap)
         self.availableSetsKeys.append(name)
         self.activeSetKey = name
-        print("Added new set for you named ", name)
-        print("Setting ", name, " as the active list.")
+        print("\nAdded new set for you named ", name)
+        print("Setting", name, "as the active list.\n")
         self.activeSet = newMap
         return newMap
         
@@ -63,6 +63,22 @@ class DataStorageService:
             else:
                 self.activeSet.setValue(word, definition)
                 print("New word added to your set!")
+
+    def checkForNewWordMultipleDefinitions(self, word, definitions):
+        # Check if our active list is empty
+        if self.activeSet.length == 0:
+            self.activeSet.setValue(word, definitions)
+            print("First word added to your set! '", word, "'")
+        else:
+            # Check if word already exists
+            if self.activeSet.getVal(word):
+                print("You have seen this word already!")
+                return
+            # Couldn't find it, now we add the word to the list
+            else:
+                self.activeSet.setValue(word, definitions)
+                print("New word added to your set!")
+
 
     # Will populate the availableLists array that can be used to switch in and out of the active list.
     # Most users would probably only have one list. 
