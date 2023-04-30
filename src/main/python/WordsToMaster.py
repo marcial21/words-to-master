@@ -4,6 +4,8 @@ from exception.ErrorHandler import ErrorHandler
 from service.GoogleSearchService import GoogleSearchService
 from service.DataStorageService import DataStorageService
 
+from util.Logger import logger
+
 class WordsToMaster:
     def __init__(self) -> None:
         # Initialize our dependencies
@@ -24,9 +26,11 @@ class WordsToMaster:
                 self.defineWordService.newContinousStoredDictionary()
             case "4":
                 print("Picked 4")
+                self.defineWordService.loadContinousStoredDictionary()
             case "5":
                 print("Picked 5")
                 self.defineWordService.continousDictionary()
+                logger.debug("Test logging")
             case "6":
                 print("Picked 6")
                 quit()
