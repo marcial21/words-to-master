@@ -1,4 +1,5 @@
 from util.HashMap import HashMap
+import os
 
 #Hash map to store names of keysets and index
 #Hash map for a list of words and definitions
@@ -34,8 +35,7 @@ class DataStorageService:
 
     # For user option 3, create new list of words
     def setNewActiveList(self):
-        self.activeSet = self.createNewSet()
-        
+        self.activeSet = self.createNewSet()     
         
     def createNewSet(self):
         name = input("Choose a name for your new word list: ")
@@ -43,26 +43,21 @@ class DataStorageService:
         self.availableSets.setValue(name, newMap)
         self.availableSetsKeys.append(name)
         self.activeSetKey = name
-        print("Added new set for you named ", name)
-        print("Setting ", name, " as the active list.")
+        print("\nAdded new set for you named ", name)
+        print("Setting", name, "as the active list.\n")
         self.activeSet = newMap
         return newMap
-        
 
-    def checkForNewWord(self, word, definition):
-        # Check if our active list is empty
-        if self.activeSet.length == 0:
-            self.activeSet.setValue(word, definition)
-            print("First word added to your set! '", word, "'")
+    def addWordDefsToActiveSet(self, word, definitions):
+        self.activeSet.setValue(word, definitions)
+        self.addToDatabase(word, definitions)
+
+
+    def wordAlreadyInSet(self, word):
+        if self.activeSet.getVal(word):
+            return True
         else:
-            # Check if word already exists
-            if self.activeSet.getVal(word):
-                print("You have seen this word already!")
-                return
-            # Couldn't find it, now we add the word to the list
-            else:
-                self.activeSet.setValue(word, definition)
-                print("New word added to your set!")
+            return False
 
     # Will populate the availableLists array that can be used to switch in and out of the active list.
     # Most users would probably only have one list. 
@@ -73,3 +68,19 @@ class DataStorageService:
     #TODO: user should bbe able to change a set's name
     def changeSetName(self):
         pass
+
+    def addToDatabase(self, word, definitions):
+        file_path = "src/database/" + self.activeSetKey + ".txt"
+
+        if os.path.exists(file_path):
+            with open(file_path, "a") as f:
+                self.writeWordDefToTextFile(f, word, definitions)
+        else:
+            with open(file_path, "w") as f:
+                self.writeWordDefToTextFile(f, word, definitions)
+
+    def writeWordDefToTextFile(self, fileStream, word, definitions):
+        #TODO: print the table to file
+        fileStream.write(word + ":\n")
+        for definition in definitions:
+            fileStream.write("\t- "+ definition +"\n")
