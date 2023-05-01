@@ -3,6 +3,7 @@ from ui.UserInterface import UserInterface
 from exception.ErrorHandler import ErrorHandler
 from service.GoogleSearchService import GoogleSearchService
 from service.DataStorageService import DataStorageService
+from service.DataImportService import DataImportService
 
 from util.Logger import logger
 
@@ -14,6 +15,7 @@ class WordsToMaster:
         self.googleSearchService = GoogleSearchService()
         self.dataStorageService = DataStorageService(self.userInterface)
         self.defineWordService = DefineWordService(self.errorHandler, self.googleSearchService, self.userInterface, self.dataStorageService)
+        self.dataImportService = DataImportService(self.dataStorageService)
 
     def handleUserOptions(self, userInput):
         match userInput:
@@ -21,6 +23,7 @@ class WordsToMaster:
                 print("Picked 1")
             case "2":
                 print("Picked 2")
+                self.dataImportService.importAllFilesFromDatabase()
             case "3":
                 print("Picked 3")
                 self.defineWordService.newContinousStoredDictionary()

@@ -47,7 +47,7 @@ class UserInterface:
         print("Now please pick from some of the menu options.")
 
         print("1. Import word list from excel.")
-        print("2. Import from textfile.")
+        print("2. Import from database.")
         print("3. Create a new list of words.")
         print("4. Choose from an existing list of words. ")
         print("5. Define single word.")

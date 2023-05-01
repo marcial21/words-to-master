@@ -5,18 +5,9 @@ reason:
 	- a cause, explanation, or justification for an action or event.
 	- the power of the mind to think, understand, and form judgments by a process of logic.
 	- think, understand, and form judgments by a process of logic.
-their:
-	- belonging to or associated with the people or things previously mentioned or easily identified.
-	- used in titles.
-Master:
-	- a man who has people working for him, especially servants or slaves.
-	- a man in charge of an organization or group.
-	- having or showing very great skill or proficiency.
-	- main; principal.
-	- acquire complete knowledge or skill in (an accomplishment, technique, or art).
-	- gain control of; overcome.
-cup:
-	- a small bowl-shaped container for drinking from, typically having a handle.
-	- an ornamental trophy in the form of a cup, usually made of gold or silver and having a stem and two handles, awarded as a prize in a contest.
-	- form (one's hand or hands) into the curved shape of a cup.
-	- bleed (someone) by using a glass in which a partial vacuum is formed by heating.
+evil:
+	- profoundly immoral and wicked.
+	- profound immorality and wickedness, especially when regarded as a supernatural force.
+search:
+	- try to find something by looking or otherwise seeking carefully and thoroughly.
+	- an act of searching for someone or something.
