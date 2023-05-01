@@ -1,4 +1,5 @@
 from util.HashMap import HashMap
+import os
 
 #Hash map to store names of keysets and index
 #Hash map for a list of words and definitions
@@ -49,6 +50,7 @@ class DataStorageService:
 
     def addWordDefsToActiveSet(self, word, definitions):
         self.activeSet.setValue(word, definitions)
+        self.addToDatabase(word, definitions)
 
 
     def wordAlreadyInSet(self, word):
@@ -66,3 +68,19 @@ class DataStorageService:
     #TODO: user should bbe able to change a set's name
     def changeSetName(self):
         pass
+
+    def addToDatabase(self, word, definitions):
+        file_path = "src/database/" + self.activeSetKey + ".txt"
+
+        if os.path.exists(file_path):
+            with open(file_path, "a") as f:
+                self.writeWordDefToTextFile(f, word, definitions)
+        else:
+            with open(file_path, "w") as f:
+                self.writeWordDefToTextFile(f, word, definitions)
+
+    def writeWordDefToTextFile(self, fileStream, word, definitions):
+        #TODO: print the table to file
+        fileStream.write(word + ":\n")
+        for definition in definitions:
+            fileStream.write("\t- "+ definition +"\n")

@@ -1,0 +1,14 @@
+Need to clean up and comment code properly with headers, citations, etc. Will be its own effort. 
+Add debug messages properly
+Export newly aded sets to textfiles - done
+
+THESE TWO ARE NEXT ON THE AGENDA
+import sets from files option 2
+import sets from excel sheets 1
+
+
+add unit tests
+add integration tests
+
+Enhancment:
+print text slowly at some instances. 
