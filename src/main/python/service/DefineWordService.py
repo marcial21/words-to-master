@@ -55,15 +55,21 @@ class DefineWordService:
             if (self.errorHandler.isExitInvoked(word)):
                 break
             if (self.userInterface.printSetInvoked(word)):
-                self.userInterface.printSet(self.dataStorageService.activeSet)
+                self.userInterface.printSet(self.dataStorageService.activeSet, self.dataStorageService.activeSetKey)
                 continue
-            
-            print("Looking up definition for", word + "...")
-            definition = self.googleSearchService.getMultipleDefinitions(word)
-            self.userInterface.printDefinitions(word, definition)
 
-            if (self.isValidDefinition(definition)):
-                self.dataStorageService.checkForNewWordMultipleDefinitions(word, definition)
+            if not (self.dataStorageService.wordAlreadyInSet(word)):
+                print("Looking up definition for", word + "...")
+                definitions = self.googleSearchService.getMultipleDefinitions(word)
+                if self.isValidDefinition(definitions):
+                    self.dataStorageService.addWordDefsToActiveSet(word, definitions)
+                    print("New word added to your set!")
+            else:
+                print("Word is already in your set, looking up definition(s) for you...")
+                definitions = self.dataStorageService.activeSet.getVal(word)
+            
+            self.userInterface.printDefinitions(word, definitions)
+
 
 
             

@@ -1,3 +1,5 @@
+from util.Logger import logger
+
 class UserInterface:
     def __init__(self) -> None:
         pass
@@ -17,11 +19,16 @@ class UserInterface:
         else:
             print(f"\n\tNo definition found for '{word}'\n")
 
-    # Only for printing objects of type 
-    #TODO: enhance this print statement
-    def printSet(self, set):
-        print(set)
-
+    def printSet(self, set, setName):
+        logger.debug("Set name:" + setName + "\n\t"+ str(set))
+        print("\n==============================YOUR WORD SET FOR '"+ setName +"'==============================================")
+        for item in set.hashTable:
+            if len(item) == 1:
+                print("\n'"+ item[0][0] +"' has the following definition(s):")
+                for definition in item[0][1]:
+                    print("\t->", definition)
+        print("\n==============================END OF SET================================================================")
+        
     def printSetInvoked(self, word):
         if (word == "print"):
             return True
