@@ -1,13 +1,9 @@
-oval:
-	- having a rounded and slightly elongated outline or shape like that of an egg.
-	- a body, object, or design with an oval shape or outline.
-reason:
-	- a cause, explanation, or justification for an action or event.
-	- the power of the mind to think, understand, and form judgments by a process of logic.
-	- think, understand, and form judgments by a process of logic.
-evil:
-	- profoundly immoral and wicked.
-	- profound immorality and wickedness, especially when regarded as a supernatural force.
-search:
-	- try to find something by looking or otherwise seeking carefully and thoroughly.
-	- an act of searching for someone or something.
+absolute:
+	- not qualified or diminished in any way; total.
+	- viewed or existing independently and not in relation to other things; not relative or comparative.
+	- a value or principle which is regarded as universally valid or which may be viewed without relation to other things.
+cup
+their
+slave
+obvious
+genius

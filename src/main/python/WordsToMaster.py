@@ -15,7 +15,7 @@ class WordsToMaster:
         self.googleSearchService = GoogleSearchService()
         self.dataStorageService = DataStorageService(self.userInterface)
         self.defineWordService = DefineWordService(self.errorHandler, self.googleSearchService, self.userInterface, self.dataStorageService)
-        self.dataImportService = DataImportService(self.dataStorageService)
+        self.dataImportService = DataImportService(self.dataStorageService, self.googleSearchService)
 
     def handleUserOptions(self, userInput):
         match userInput:

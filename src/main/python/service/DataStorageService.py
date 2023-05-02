@@ -19,7 +19,7 @@ class DataStorageService:
         
     # For option 4, choose from an existing set, will default to 3 if no existing sets,
     def loadActiveList(self):
-        if (self.activeSetKey is None):
+        if (self.availableSets.length == 0):
             print("No available sets yet big g. Will create a new set for ya tho. \n")
             self.setNewActiveList()
             return
@@ -80,7 +80,6 @@ class DataStorageService:
                 self.writeWordDefToTextFile(f, word, definitions)
 
     def writeWordDefToTextFile(self, fileStream, word, definitions):
-        #TODO: print the table to file
         fileStream.write(word + ":\n")
         for definition in definitions:
             fileStream.write("\t- "+ definition +"\n")
