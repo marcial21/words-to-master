@@ -1,16 +1,8 @@
 Need to clean up and comment code properly with headers, citations, etc. Will be its own effort. 
 Add debug messages properly
-Export newly aded sets to textfiles - done
 
-THESE TWO ARE NEXT ON THE AGENDA
-sooooo
-Read any text file, for each word that doesn't end with a ':' aka colon query the definition and save to that file in
-the universal format aka file.txt 
-
-
-import sets from files option 2
-import sets from excel sheets 1
-
+TODO:
+fix the current bug, the active set doesn not print out correctly, it has some missing words sometimes. Damn it.
 
 add unit tests
 add integration tests
