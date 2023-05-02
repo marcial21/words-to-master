@@ -25,9 +25,7 @@ class DataImportService:
     # Its like data storage's addToDatabase but in this one we don't have the 
     # activeSetKey
     def writeWordDefToFile(self, word, definitions, filePath):
-        print("ABOUT TO WRITE TO A FILE")
         if os.path.exists(filePath):
-            print("Writting to a file")
             with open(filePath, "a") as f:
                 self.dataStorageService.writeWordDefToTextFile(f, word, definitions)
 
@@ -44,9 +42,6 @@ class DataImportService:
                 with open(filePath, "r") as f:
                     fileContents = f.readlines()
             
-            print(baseName)
-            print(fileContents)
-
             #Add name to available set keys
             self.dataStorageService.availableSetsKeys.append(baseName)
             # Create a new hashmap with the word def

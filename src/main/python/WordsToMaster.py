@@ -46,11 +46,6 @@ class WordsToMaster:
     def startApplication(self): 
         while True:
             self.handleUserOptions(self.userInterface.welcomeScreen())
-        # New user interface
-
-        # New storage container tha will be empty or import 
-
-        # New google search service
         
             
 app = WordsToMaster().startApplication(); 
