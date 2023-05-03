@@ -1,22 +1,9 @@
-oval:
-	- having a rounded and slightly elongated outline or shape like that of an egg.
-	- a body, object, or design with an oval shape or outline.
-reason:
-	- a cause, explanation, or justification for an action or event.
-	- the power of the mind to think, understand, and form judgments by a process of logic.
-	- think, understand, and form judgments by a process of logic.
-their:
-	- belonging to or associated with the people or things previously mentioned or easily identified.
-	- used in titles.
-Master:
-	- a man who has people working for him, especially servants or slaves.
-	- a man in charge of an organization or group.
-	- having or showing very great skill or proficiency.
-	- main; principal.
-	- acquire complete knowledge or skill in (an accomplishment, technique, or art).
-	- gain control of; overcome.
-cup:
-	- a small bowl-shaped container for drinking from, typically having a handle.
-	- an ornamental trophy in the form of a cup, usually made of gold or silver and having a stem and two handles, awarded as a prize in a contest.
-	- form (one's hand or hands) into the curved shape of a cup.
-	- bleed (someone) by using a glass in which a partial vacuum is formed by heating.
+absolute:
+	- not qualified or diminished in any way; total.
+	- viewed or existing independently and not in relation to other things; not relative or comparative.
+	- a value or principle which is regarded as universally valid or which may be viewed without relation to other things.
+cup
+their
+slave
+obvious
+genius
