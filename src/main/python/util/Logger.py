@@ -1,7 +1,15 @@
+"""
+Gabriel Marcial
+https://github.com/marcial21
+mgabrielofficial@outlook.com
+
+Logger.py
+"""
+
 import logging
 
-# configure logging
+# Configure logging
 logging.basicConfig(filename='debug.log', level=logging.DEBUG)
 
-# create a logger instance
+# Create a logger instance
 logger = logging.getLogger(__name__)

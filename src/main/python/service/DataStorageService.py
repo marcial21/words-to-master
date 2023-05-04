@@ -1,23 +1,42 @@
-from util.HashMap import HashMap
-import os
+"""
+Gabriel Marcial
+https://github.com/marcial21
+mgabrielofficial@outlook.com
 
-#Hash map to store names of keysets and index
-#Hash map for a list of words and definitions
+DataStorageService.py
+"""
+
+import os
+from util.HashMap import HashMap
+
+"""
+Class used to handle our data structures and data storage of word sets. Using
+a complex set of lists and hash maps, we can accurately keep track of words, definitions and
+word sets. Allows us to easily add new words and definitions while also switching out between
+sets. 
+"""
 class DataStorageService:
+    """
+    Constructor for our service which holds the following variables and purposes:
+        activeSet (HashMap):      The current hash table of word-definitions that user is interacting with.
+        activeSetKey (string):    The name of the activeSet which is what we use to query that given set.
+        availableSets (HashMap):  The hash table of name-word set that the user is interacting with.
+        availableSetsKeys (list): A list of names that we use to query the 'availableSets' hash table.  
+    """
     def __init__(self, userInterface) -> None:
-        # The current hash table of word-definition that user is using
         self.activeSet = None
-        # The key for this hashmap
         self.activeSetKey = None
-        # Hash map of word sets to easily lookup different sets the user may want to use
         self.availableSets = HashMap(100)
-        # Keep track of our sets through the keys so we can query them easily
         self.availableSetsKeys = []
 
         # Dependency injections
         self.userInterface = userInterface
         
     # For option 4, choose from an existing set, will default to 3 if no existing sets,
+    """
+    Function used for handling option 4 from our application. Will set our activeSet from any
+    existing sets. If no existing sets, we will prompt user to create a new set. 
+    """
     def loadActiveList(self):
         if (self.availableSets.length == 0):
             print("No available sets yet big g. Will create a new set for ya tho. \n")
@@ -37,6 +56,15 @@ class DataStorageService:
     def setNewActiveList(self):
         self.activeSet = self.createNewSet()     
         
+    # Initialize a new map of word-definitions and set it as the activeSet.
+    # Save its name and add this new map to our map of word sets.
+    """
+    Initialize a new map of word-definitions and set it as the activeSet. Save its 
+    name and add this new map to our map of word sets.
+
+    Returns:
+        HashMap: The newly created word set.
+    """
     def createNewSet(self):
         name = input("Choose a name for your new word list: ")
         newMap = HashMap(30)
@@ -48,27 +76,32 @@ class DataStorageService:
         self.activeSet = newMap
         return newMap
 
+    # Add a new word-definitions pair to the activeSet
     def addWordDefsToActiveSet(self, word, definitions):
         self.activeSet.setValue(word, definitions)
         self.addToDatabase(word, definitions)
 
-
+    # Check if our activeSet already contains an entry for the given word
     def wordAlreadyInSet(self, word):
         if self.activeSet.getVal(word):
             return True
         else:
             return False
 
-    # Will populate the availableLists array that can be used to switch in and out of the active list.
-    # Most users would probably only have one list. 
-    def importWordSets(self):
-        #TODO
-        pass
-
-    #TODO: user should bbe able to change a set's name
+    # TODO: User should bbe able to change a set's name
     def changeSetName(self):
         pass
 
+    """
+    Function to add our word and definitions to a text file in our database directory. Its programmed
+    to write to a file named after the set's name followed by the textfile extension. So for example if
+    our activeSet's name (also defined in our activeSetKey) is 'Kathy' than our method will write to 
+    src/database/Kathy.txt
+
+    Parameters:
+        word (string):      The word we will write.
+        definitions (list): The list of definitions for the given word.
+    """
     def addToDatabase(self, word, definitions):
         file_path = "src/database/" + self.activeSetKey + ".txt"
 
@@ -79,6 +112,7 @@ class DataStorageService:
             with open(file_path, "w") as f:
                 self.writeWordDefToTextFile(f, word, definitions)
 
+    # Will write definitions to a file. Helper for addToDatabase
     def writeWordDefToTextFile(self, fileStream, word, definitions):
         fileStream.write(word + ":\n")
         for definition in definitions:
