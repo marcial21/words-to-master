@@ -3,7 +3,7 @@ Gabriel Marcial
 https://github.com/marcial21
 mgabrielofficial@outlook.com
 
-DataStorageService.py
+DefineWordService.py
 """
 
 from util.Logger import logger
