@@ -1,10 +1,32 @@
+"""
+Gabriel Marcial
+https://github.com/marcial21
+mgabrielofficial@outlook.com
+
+GoogleSearchService.py
+"""
+
 import requests
 from bs4 import BeautifulSoup
 
+"""
+Service class used to handle queries to google search.
+"""
 class GoogleSearchService:
+    # Constructor
     def __init__(self) -> None:
         pass
 
+    """
+    Queries google api for words and scrapes the html returned and filters it so that
+    we can extract the definition. 
+
+    Parameters:
+        word (string): The word that we will lookup definition for.
+
+    Returns
+        string: The definition scraped from the html.
+    """
     def getDefinition(self, word):
         url = f"https://www.google.com/search?q=define+{word}"
         headers = {"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36"}
@@ -18,6 +40,16 @@ class GoogleSearchService:
                 break
         return definition
     
+    """
+    Queries google api for words and scrapes the html returned and filters it so that
+    we can extract all the definitions. 
+
+    Parameters:
+        word (string): The word that we will lookup definition for.
+
+    Returns
+        list: The definitions scraped from the html.
+    """
     def getMultipleDefinitions(self, word):
         url = f"https://www.google.com/search?q=define+{word}"
         headers = {"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36"}
@@ -29,28 +61,6 @@ class GoogleSearchService:
                 definitions.append(tag.get_text())
         return definitions
     
-    #Todo: get 'Part of Speech' from words
+    # Todo: get 'Part of Speech' from words
     def getPartsOfSpeech(self):
         pass
-
-
-
-# m = GoogleSearchService()
-# print("\n\n")
-# word = "ferocious"
-# definition = m.getDefinition(word)
-# if definition:
-#     print(f"The definition of '{word}' is '{definition}'")
-# else:
-#     print(f"No definition found for '{word}'")
-
-# print("==========================================")
-# word = "spurt"
-# definitions = m.getMultipleDefinitions(word)
-# if definitions:
-#     print(f"The definition(s) of '{word}' are:")
-#     for definition in definitions:
-#         print(f"- {definition}")
-# else:
-#     print(f"No definition found for '{word}'")
-

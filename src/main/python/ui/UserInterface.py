@@ -1,15 +1,45 @@
+"""
+Gabriel Marcial
+https://github.com/marcial21
+mgabrielofficial@outlook.com
+
+UserInterface.py
+"""
+
 from util.Logger import logger
 
+"""
+A class used to handle features specific to the user interface.
+"""
 class UserInterface:
+    """
+    Constructor with no initialization of variables.
+    """
     def __init__(self) -> None:
         pass
     
+    """
+    Will print the word followed by its definition if exists, will specify and print that 
+    no definition was found otherwise.
+
+    Parameters:
+        word (str):       The word.
+        definition (str): The definition of the word we are defining.
+    """
     def printDefinition(self, word, definition):
         if definition:
             print(f"\n\nThe definition of '{word}' is: \n\t'{definition}'\n\n")
         else:
             print(f"\n\tNo definition found for '{word}'\n")
 
+    """
+    Will print the word followed by its definitions if exists, will specify and print that 
+    no definition was found otherwise.
+
+    Parameters:
+        word (str):         The word.
+        definitions (list): A list of definitions for a given word.
+    """
     def printDefinitions(self, word, definitions):
         if definitions:
             print(f"\n\nThe definition(s) of '{word}' are:")
@@ -19,6 +49,13 @@ class UserInterface:
         else:
             print(f"\n\tNo definition found for '{word}'\n")
 
+    """
+    Will print a set of words and definitions to the console.
+
+    Parameters:
+        word (str):       The word.
+        definition (str): The definition of the word we are defining.
+    """
     def printSet(self, set, setName):
         logger.debug("Set name:" + setName + "\n\t"+ str(set))
         print("\n==============================YOUR WORD SET FOR '"+ setName +"'==============================================")
@@ -29,10 +66,27 @@ class UserInterface:
                     print("\t->", definition)
         print("\n==============================END OF SET================================================================")
         
-    def printSetInvoked(self, word):
-        if (word == "print"):
+    """
+    Checks if given input matches a specifed string.
+
+    Parameters:
+        str: The string to check.
+    """
+    def printSetInvoked(self, str):
+        if (str == "print"):
             return True
 
+    """
+    Returns input from the user specifying a word set key. The keys symbolizes the 
+    name of a given set. Typically in sync with the name of the text file being 
+    written to.
+
+    Parameters:
+        setKeys (list): A list of keys to iterate.
+
+    Returns:
+        String: The string entered by the user.
+    """
     def chooseWordSet(self, setKeys):
         print("Print from one of the following word set options: ")
         for key in setKeys:
@@ -40,6 +94,12 @@ class UserInterface:
 
         return input("Enter name of chosen set: \n")
 
+    """
+    A method used to print out the main options of the program so the user can choose among them.
+
+    Returns:
+        String: The option entered by the user.
+    """
     def welcomeScreen(self):
         print("Welcome to WordsToMaster, your very own english literacy tool! Brought to you by big daddy Gabe.\n")
         print("Please refer to the README file to get a detailed desciption of how to use the tool and it's features.")
@@ -54,3 +114,4 @@ class UserInterface:
         print("6. Exit program.")
 
         return input("Enter your choice (1-6): ")
+    

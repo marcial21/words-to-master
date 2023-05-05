@@ -1,4 +1,3 @@
-Need to clean up and comment code properly with headers, citations, etc. Will be its own effort. 
 Add debug messages properly
 
 TODO:
