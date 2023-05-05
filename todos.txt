@@ -8,3 +8,7 @@ add integration tests
 
 Enhancment:
 print text slowly at some instances. 
+
+
+
+python3 -B -m unittest -v src/test/python/exception/ErrorHandlerTest.py 
