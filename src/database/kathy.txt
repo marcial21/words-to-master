@@ -2,8 +2,25 @@ absolute:
 	- not qualified or diminished in any way; total.
 	- viewed or existing independently and not in relation to other things; not relative or comparative.
 	- a value or principle which is regarded as universally valid or which may be viewed without relation to other things.
-cup
-their
-slave
-obvious
-genius
+cup:
+	- a small bowl-shaped container for drinking from, typically having a handle.
+	- an ornamental trophy in the form of a cup, usually made of gold or silver and having a stem and two handles, awarded as a prize in a contest.
+	- form (one's hand or hands) into the curved shape of a cup.
+	- bleed (someone) by using a glass in which a partial vacuum is formed by heating.
+their:
+	- belonging to or associated with the people or things previously mentioned or easily identified.
+	- used in titles.
+slave:
+	- a person who is forced to work for and obey another and is considered to be their property; an enslaved person.
+	- a device, or part of one, directly controlled by another.
+	- work excessively hard.
+	- subject (a device) to control by another.
+obvious:
+	- easily perceived or understood; clear, self-evident, or apparent.
+genius:
+	- exceptional intellectual or creative power or other natural ability.
+	- a person who is exceptionally intelligent or creative, either generally or in some particular respect.
+	- very clever or ingenious.
+absolutely:
+	- with no qualification, restriction, or limitation; totally.
+	- independently; not viewed in relation to other things or factors.

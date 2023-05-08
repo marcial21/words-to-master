@@ -51,6 +51,7 @@ class GoogleSearchService:
         list: The definitions scraped from the html.
     """
     def getMultipleDefinitions(self, word):
+        print("\nLoading...\n")
         url = f"https://www.google.com/search?q=define+{word}"
         headers = {"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36"}
         response = requests.get(url, headers=headers)

@@ -88,7 +88,7 @@ class UserInterface:
         String: The string entered by the user.
     """
     def chooseWordSet(self, setKeys):
-        print("Print from one of the following word set options: ")
+        print("\nChoose from one of the following word set options: ")
         for key in setKeys:
             print(key)
 
@@ -101,7 +101,7 @@ class UserInterface:
         String: The option entered by the user.
     """
     def welcomeScreen(self):
-        print("Welcome to WordsToMaster, your very own english literacy tool! Brought to you by big daddy Gabe.\n")
+        print("Welcome to WordsToMaster, your very own english literacy tool! Brought to you by Gabe.\n")
         print("Please refer to the README file to get a detailed desciption of how to use the tool and it's features.")
 
         print("Now please pick from some of the menu options.")
