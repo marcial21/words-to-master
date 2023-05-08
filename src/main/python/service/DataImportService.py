@@ -77,7 +77,7 @@ class DataImportService:
             
             # Add name to available set keys
             self.dataStorageService.availableSetsKeys.append(baseName)
-            newMap = HashMap(30)
+            newMap = HashMap(10000)
             self.populateWordDefToHashMap(newMap, fileContents, filePath)
             # Add this hasmap to available sets using the basename as the key
             self.dataStorageService.availableSets.setValue(baseName, newMap)

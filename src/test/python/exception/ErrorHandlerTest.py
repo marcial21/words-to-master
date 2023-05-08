@@ -14,16 +14,14 @@ class ErrorHandlerTest(unittest.TestCase):
     def tearDown(self) -> None:
         return super().tearDown()
 
-    def testLigma(self):
-        self.assertEqual(2, 2)
-
-    def testBalls(self):
-        self.assertEqual(2, 2)
-
     def testValidateNonEmptyString(self):
         emptyString = ""
         self.assertEqual(ERROR_02, self.errorHandler.validateNonEmptyString(emptyString))
 
+    def testIsExitInvoked(self):
+        returnString = "return"
+        self.assertTrue(self.errorHandler.isExitInvoked(returnString))
 
 if __name__ == '__main__':
     unittest.main()
+    

@@ -1,4 +1,15 @@
-oval
-reason
-evil
-spider
+oval:
+	- having a rounded and slightly elongated outline or shape like that of an egg.
+	- a body, object, or design with an oval shape or outline.
+reason:
+	- a cause, explanation, or justification for an action or event.
+	- the power of the mind to think, understand, and form judgments by a process of logic.
+	- think, understand, and form judgments by a process of logic.
+evil:
+	- profoundly immoral and wicked.
+	- profound immorality and wickedness, especially when regarded as a supernatural force.
+spider:
+	- an eight-legged predatory arachnid with an unsegmented body consisting of a fused head and thorax and a rounded abdomen. Spiders have fangs that inject venom into their prey, and most kinds spin webs in which to capture insects.
+	- an object resembling a spider, especially one having numerous or prominent legs or radiating spokes.
+	- move in a scuttling manner suggestive of a spider.
+	- another term for crawl (sense 4 of the verb).

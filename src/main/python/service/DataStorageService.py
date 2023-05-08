@@ -67,7 +67,8 @@ class DataStorageService:
     """
     def createNewSet(self):
         name = input("Choose a name for your new word list: ")
-        newMap = HashMap(30)
+        name = name.strip()
+        newMap = HashMap(10000)
         self.availableSets.setValue(name, newMap)
         self.availableSetsKeys.append(name)
         self.activeSetKey = name
