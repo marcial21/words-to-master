@@ -15,8 +15,8 @@ class UserInterface:
     """
     Constructor with no initialization of variables.
     """
-    def __init__(self) -> None:
-        pass
+    def __init__(self, errorHandler) -> None:
+        self.errorHandler = errorHandler
     
     """
     Will print the word followed by its definition if exists, will specify and print that 
@@ -53,8 +53,8 @@ class UserInterface:
     Will print a set of words and definitions to the console.
 
     Parameters:
-        word (str):       The word.
-        definition (str): The definition of the word we are defining.
+        set (hashmap): The word set.
+        setName (str): The name of the set.
     """
     def printSet(self, set, setName):
         logger.debug("Set name:" + setName + "\n\t"+ str(set))
@@ -89,10 +89,18 @@ class UserInterface:
     """
     def chooseWordSet(self, setKeys):
         print("\nChoose from one of the following word set options: ")
-        for key in setKeys:
-            print(key)
+        while True:
+            for key in setKeys:
+                print(key)
 
-        return input("Enter name of chosen set: \n")
+            chosenKey = input("Enter name of chosen set: \n")
+            chosenKey = chosenKey.strip()
+
+            if not self.errorHandler.isValidKey(chosenKey, setKeys):
+                print("\nInvalid name!!! Please choose from one of the options, no mispelling :p")
+                continue
+
+            return chosenKey
 
     """
     A method used to print out the main options of the program so the user can choose among them.

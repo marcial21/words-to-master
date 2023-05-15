@@ -2,11 +2,6 @@ absolute:
 	- not qualified or diminished in any way; total.
 	- viewed or existing independently and not in relation to other things; not relative or comparative.
 	- a value or principle which is regarded as universally valid or which may be viewed without relation to other things.
-cup:
-	- a small bowl-shaped container for drinking from, typically having a handle.
-	- an ornamental trophy in the form of a cup, usually made of gold or silver and having a stem and two handles, awarded as a prize in a contest.
-	- form (one's hand or hands) into the curved shape of a cup.
-	- bleed (someone) by using a glass in which a partial vacuum is formed by heating.
 their:
 	- belonging to or associated with the people or things previously mentioned or easily identified.
 	- used in titles.
@@ -24,3 +19,8 @@ genius:
 absolutely:
 	- with no qualification, restriction, or limitation; totally.
 	- independently; not viewed in relation to other things or factors.
+cup:
+	- a small bowl-shaped container for drinking from, typically having a handle.
+	- an ornamental trophy in the form of a cup, usually made of gold or silver and having a stem and two handles, awarded as a prize in a contest.
+	- form (one's hand or hands) into the curved shape of a cup.
+	- bleed (someone) by using a glass in which a partial vacuum is formed by heating.

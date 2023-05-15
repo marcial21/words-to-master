@@ -25,7 +25,6 @@ class DefineWordService:
         
     # Method for simply quering google api and printing definitions to console. No storage or imports.
     def continousDictionary(self):
-        logger.debug("continousDictionary")
         while True:
             word = input("Please enter a word to define or enter 'return' to return to main menu.\n")
             self.errorCode = self.errorHandler.validateNonEmptyString(word)
