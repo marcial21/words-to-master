@@ -53,8 +53,8 @@ class UserInterface:
     Will print a set of words and definitions to the console.
 
     Parameters:
-        word (str):       The word.
-        definition (str): The definition of the word we are defining.
+        set (hashmap): The word set.
+        setName (str): The name of the set.
     """
     def printSet(self, set, setName):
         logger.debug("Set name:" + setName + "\n\t"+ str(set))

@@ -53,8 +53,6 @@ class DataStorageService:
     def setNewActiveList(self):
         self.activeSet = self.createNewSet()     
         
-    # Initialize a new map of word-definitions and set it as the activeSet.
-    # Save its name and add this new map to our map of word sets.
     """
     Initialize a new map of word-definitions and set it as the activeSet. Save its 
     name and add this new map to our map of word sets.

@@ -40,7 +40,6 @@ class DataImportService:
         filePath (string): The path of our file.
     """
     def populateWordDefToHashMap(self, map, txtLines, filePath):
-        logger.debug("populateWordDefToHashMap")
         textLines = [line.replace('\n', '').replace('\t','') for line in txtLines]
         areAddingDefinitions = False
         word = None
@@ -49,10 +48,8 @@ class DataImportService:
             # if line ends with ':' we don't need to write defintions to the file
             if line.endswith(':'):
                 if areAddingDefinitions:
-                    #logger.debug("These definitions should have dashes:", definitions)
                     # Make sure we remove the dash before adding def
                     defs = [definition[2:] for definition in definitions]
-                    #logger.debug("These definitions should have dashes removed:", definitions)
                     map.setValue(word, defs)
                     definitions.clear()
                     word = line[:-1]
@@ -60,6 +57,12 @@ class DataImportService:
                     word = line[:-1]
                     areAddingDefinitions = True
             elif not line.startswith('-'):
+                if areAddingDefinitions:
+                    defs = [definition[2:] for definition in definitions]
+                    map.setValue(word, defs)
+                    definitions.clear()
+                    areAddingDefinitions = False
+                
                 definitions = self.googleSearchService.getMultipleDefinitions(line)
                 map.setValue(line, definitions)
                 self.writeWordDefToFile(line, definitions, filePath)
@@ -100,7 +103,6 @@ class DataImportService:
             self.dataStorageService.availableSetsKeys.append(baseName)
             newMap = HashMap(10000)
             self.populateWordDefToHashMap(newMap, fileContents, filePath)
-            logger.debug("items of newMap: " + str(newMap))
             # Add this hasmap to available sets using the basename as the key
             self.dataStorageService.availableSets.setValue(baseName, newMap)
             # Remove dangling words

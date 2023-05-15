@@ -1,9 +1,9 @@
-chicken:
-	- a domestic fowl kept for its eggs or meat, especially a young one.
-	- cowardly.
-	- withdraw from or fail in something through lack of nerve.
 power:
 	- the ability to do something or act in a particular way, especially as a faculty or quality.
 	- the capacity or ability to direct or influence the behavior of others or the course of events.
 	- supply (a device) with mechanical or electrical energy.
 	- move or travel with great speed or force.
+chicken:
+	- a domestic fowl kept for its eggs or meat, especially a young one.
+	- cowardly.
+	- withdraw from or fail in something through lack of nerve.

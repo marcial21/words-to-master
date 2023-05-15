@@ -49,7 +49,6 @@ class WordsToMaster:
             case "5":
                 print("Picked 5")
                 self.defineWordService.continousDictionary()
-                logger.debug("Test logging")
             case "6":
                 print("Picked 6")
                 quit()
