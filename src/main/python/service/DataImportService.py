@@ -8,6 +8,7 @@ DataImportService.py
 
 import os
 from util.HashMap import HashMap
+from util.Logger import logger
 
 """
 Class used to handle the logic for importing word sets from text files and transcribing them to lists 
@@ -39,17 +40,37 @@ class DataImportService:
         filePath (string): The path of our file.
     """
     def populateWordDefToHashMap(self, map, txtLines, filePath):
+        logger.debug("populateWordDefToHashMap")
         textLines = [line.replace('\n', '').replace('\t','') for line in txtLines]
+        areAddingDefinitions = False
+        word = None
+        definitions = []
         for line in textLines:
             # if line ends with ':' we don't need to write defintions to the file
             if line.endswith(':'):
-                word = line[:-1]
-                definitions = self.googleSearchService.getMultipleDefinitions(word)
-                map.setValue(word, definitions)
+                if areAddingDefinitions:
+                    #logger.debug("These definitions should have dashes:", definitions)
+                    # Make sure we remove the dash before adding def
+                    defs = [definition[2:] for definition in definitions]
+                    #logger.debug("These definitions should have dashes removed:", definitions)
+                    map.setValue(word, defs)
+                    definitions.clear()
+                    word = line[:-1]
+                else:
+                    word = line[:-1]
+                    areAddingDefinitions = True
             elif not line.startswith('-'):
                 definitions = self.googleSearchService.getMultipleDefinitions(line)
                 map.setValue(line, definitions)
                 self.writeWordDefToFile(line, definitions, filePath)
+            else:
+                if areAddingDefinitions:
+                    definitions.append(line)
+        
+        # After we finish loop, populate the remaining definitions if any
+        if len(definitions) > 0:
+            defs = [definition[2:] for definition in definitions]
+            map.setValue(word, defs)
 
     # Calls our dataStorageService class to write definitions to our specfied file
     def writeWordDefToFile(self, word, definitions, filePath):
@@ -79,6 +100,7 @@ class DataImportService:
             self.dataStorageService.availableSetsKeys.append(baseName)
             newMap = HashMap(10000)
             self.populateWordDefToHashMap(newMap, fileContents, filePath)
+            logger.debug("items of newMap: " + str(newMap))
             # Add this hasmap to available sets using the basename as the key
             self.dataStorageService.availableSets.setValue(baseName, newMap)
             # Remove dangling words

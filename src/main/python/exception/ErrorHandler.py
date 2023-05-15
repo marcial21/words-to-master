@@ -48,3 +48,9 @@ class ErrorHandler:
     def isExitInvoked(self, input):
         return input == "return"
     
+    def isValidKey(self, key, keySet):
+        if key in keySet:
+            return True
+        else:
+            return False
+    

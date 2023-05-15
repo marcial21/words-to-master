@@ -20,10 +20,10 @@ class WordsToMaster:
     """
     def __init__(self) -> None:
         # Initialize our dependencies
-        self.userInterface = UserInterface()
         self.errorHandler = ErrorHandler()
         self.googleSearchService = GoogleSearchService()
-        self.dataStorageService = DataStorageService(self.userInterface)
+        self.userInterface = UserInterface(self.errorHandler)
+        self.dataStorageService = DataStorageService(self.userInterface, self.errorHandler)
         self.defineWordService = DefineWordService(self.errorHandler, self.googleSearchService, self.userInterface, self.dataStorageService)
         self.dataImportService = DataImportService(self.dataStorageService, self.googleSearchService)
 

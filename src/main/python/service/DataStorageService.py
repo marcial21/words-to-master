@@ -23,7 +23,7 @@ class DataStorageService:
         availableSets (HashMap):  The hash table of name-word set that the user is interacting with.
         availableSetsKeys (list): A list of names that we use to query the 'availableSets' hash table.  
     """
-    def __init__(self, userInterface) -> None:
+    def __init__(self, userInterface, errorHandler) -> None:
         self.activeSet = None
         self.activeSetKey = None
         self.availableSets = HashMap(100)
@@ -31,6 +31,7 @@ class DataStorageService:
 
         # Dependency injections
         self.userInterface = userInterface
+        self.errorHandler = errorHandler
         
     # For option 4, choose from an existing set, will default to 3 if no existing sets,
     """
@@ -41,10 +42,6 @@ class DataStorageService:
         if (self.availableSets.length == 0):
             print("No available sets yet big g. Will create a new set for ya tho. \n")
             self.setNewActiveList()
-            return
-        
-        if self.availableSets.length == 1:
-            print("Set: '", self.activeSetKey, "' is now your active set!")
             return
 
         # Look for the existing set and choose it
