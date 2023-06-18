@@ -1,7 +1,7 @@
 words-to-master
 ======================
 
-A simple tool for the homies and homegirls to improve english literacy. 
+A simple tool for improving english literacy.
 
 ## ``Limitations`` (please read)
 * Need network connectivity
